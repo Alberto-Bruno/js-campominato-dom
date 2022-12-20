@@ -71,6 +71,7 @@ main {
 #grid {
     margin: 20px auto;
     height: 80vh;
+    width: 80vh;
 
     display: flex;
     align-items: center;
@@ -80,8 +81,8 @@ main {
 
 
 #grid .cell {
-    width: calc(100% / 10);
-    height: calc(100% / 10);
+    width: calc(100% / var(--cells-per-row));
+    height: calc(100% / var(--cells-per-row));
     border: 1px solid black;
     cursor: pointer;
 
@@ -94,6 +95,11 @@ main {
 #grid .cell.clicked {
     background-color: dodgerblue;
     color: white;
+    cursor: not-allowed;
+}
+
+#grid .cell.clicked.bomb {
+    background-color: red;
 }
 
 
