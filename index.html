@@ -23,10 +23,9 @@
             <div class="title center">
                 <h1>Campo Minato</h1>
             </div>
-
+            
             <!-- barra di selezione difficoltà e bottone inizio gioco-->
             <div class="play-bar">
-
                 <label for="difficulty">Difficoltà:
                     <select name="difficulty" id="difficulty">
                         <option value="1" selected>Easy</option>
@@ -34,12 +33,13 @@
                         <option value="3">Crazy</option>
                     </select>
                 </label>
-
+                
                 <button id="play-button" type="button">Play</button>
             </div>
         </div>
+        <div class="center">Score: <span id="display-score">0</span></div>
     </header>
-
+    
     <main class="center pb-5">
         <div class="container">
             <div id="grid" class="mt-5">

@@ -1,4 +1,5 @@
 :root {
+    --acquagreen: #7fffd4;
     --cells-per-row: 10;
 }
 
@@ -50,7 +51,7 @@ header {
 }
 
 select {
-    min-width: 8rem;
+    min-width: 4rem;
     cursor: pointer;
 }
 
@@ -90,7 +91,7 @@ main {
     font-weight: bold;
 }
 
-#grid-cell.clicked {
+#grid .cell.clicked {
     background-color: dodgerblue;
     color: white;
 }

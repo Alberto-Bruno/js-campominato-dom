@@ -2,6 +2,7 @@
 const grid = document.getElementById('grid');
 const playButton = document.getElementById("play-button");
 const difficulty = document.getElementById('difficulty');
+const scoreDisplay = document.getElementById('display-score');
 
 function play() {
     const createCell = (number, className) => {
@@ -40,17 +41,25 @@ function play() {
 
     // Setto il valore corretto
     const root = document.querySelector(':root');
+    root.style.setProperty('--cells-per-row', cols);
 
     // Calcolo totale celle 
     const totalCells = rows * cols;
 
+    // Preparo la variabile
+    let score = 0;
+
+    console.log(++score);
+    console.log(score);
+
     // Svolgimento 
     for (let i = 1; i <= totalCells; i++) {
-        const cell = createCell(i, level);
+        const cell = createCell(i);
 
         cell.addEventListener('click', function () {
             cell.classList.add('clicked');
-            console.log(i);
+            scoreDisplay.innerText = ++score;
+            console.log(score);
         })
 
         grid.appendChild(cell);
