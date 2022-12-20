@@ -41,10 +41,30 @@ function play() {
     }
 
 
-    const gameOver = (score, hasHitBomb) => {
+    const gameOver = (score, bombs, hasHitBomb) => {
         const message = hasHitBomb ? `Hai perso! Hai ottenuto : ${score} ` : `Hai vinto! Hai ottenuto : ${score} punti! `;
         alert(message);
 
+        revealCells(bombs);
+    }
+
+    const revealCells = bombs => {
+        // Recupero tutte le celle
+        const cells = document.querySelectorAll('.cell');
+
+        // Per ognuna delle celle
+        for (let i = 0; i < cells.length; i++) {
+            const cell = cells[i];
+            
+            // Aggiungi a tutta la classe clicked
+            cells[i].classList.add('clicked');
+
+            // Se è bomba, metti anche la classe bomb
+            const cellNumber = parseInt(cells[i].innerText);
+            if (bombs.includes(cellNumber)) {
+                cell.classList.add('bomb');
+            }
+        }
     }
 
     // Cambio il testo button in 'Ricomincia'
@@ -115,14 +135,14 @@ function play() {
             const hasHitBomb = bombs.includes(cellNumber);
             if (hasHitBomb) {
                 cell.classList.add('bomb');
-                gameOver(score, hasHitBomb);
+                gameOver(score, bombs, hasHitBomb);
             } else {
                 // Incremento il punteggio
                 scoreDisplay.innerText = ++score;
 
                 // Verifico se ha vinto 
                 if (score === maxPoints) {
-                    gameOver(score, hasHitBomb);
+                    gameOver(score, bombs, hasHitBomb);
                 }
             }
 
